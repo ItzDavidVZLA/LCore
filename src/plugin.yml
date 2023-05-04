@@ -1,0 +1,7 @@
+name: LCore
+main: me.david.lcore.Main
+version: 1.0-DEV
+
+commands:
+    adventure:
+        description: Set your gamemode to Adventure
