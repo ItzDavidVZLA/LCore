@@ -3,5 +3,19 @@ main: me.david.lcore.Main
 version: 1.0-DEV
 
 commands:
-    adventure:
-        description: Set your gamemode to Adventure
+  adventure:
+    description: Set your gamemode to Adventure
+  creative:
+     description: Set your gamemode to Creative
+  survival:
+    description: Set your gamemode to Survival
+  spectator:
+    description: Set your gamemode to Spectator
+  feed:
+    description: Regen all your food bar
+  heal:
+    description: Regen all your life
+  mending:
+    description: Regen your health status
+  slay:
+    description: Command killer

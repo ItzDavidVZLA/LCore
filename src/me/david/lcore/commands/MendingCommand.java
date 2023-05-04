@@ -2,23 +2,23 @@ package me.david.lcore.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class AdventureCommand implements CommandExecutor{
+public class MendingCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String alias, String[] args) {
         Player p = (Player) sender;
-        if (p.hasPermission("lcore.adventure")){
+        if (p.hasPermission("lcore.mending")){
             if (args.length == 0) {
-                p.setGameMode(GameMode.ADVENTURE);
+                p.setHealth(20);
+                p.setFoodLevel(20);
                 p.sendMessage(ChatColor.translateAlternateColorCodes
-                        ('&', "&aModo de juego cambiado a &6aventura&a."));
-                p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
+                        ('&', "&aEstado de salud regenerado."));
+                p.playSound(p.getLocation(), Sound.DRINK, 1, 1);
                 return true;
             } else {
                 Player target = Bukkit.getPlayerExact(args[0]);
@@ -28,9 +28,10 @@ public class AdventureCommand implements CommandExecutor{
                     p.playSound(p.getLocation(), Sound.NOTE_BASS, 1, 1);
                 } else {
                     p.sendMessage(ChatColor.translateAlternateColorCodes
-                            ('&', "&aEl modo de juego de &6 "+ args[0] +" &afue establecido a &6aventura&a."));
-                    p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
-                    target.setGameMode(GameMode.ADVENTURE);
+                            ('&', "&aHas regenerado el estado de salud de &6"+ args[0] +"&a."));
+                    p.playSound(p.getLocation(), Sound.DRINK, 1, 1);
+                    target.setHealth(20);
+                    target.setFoodLevel(20);
                 }
             }
         }
